@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vampire Survivors Style Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen">
+        <div class="start-container">
+            <h1 class="game-title">🧛 SURVIVOR</h1>
+            <p class="game-subtitle">뱀파이어 서바이벌 스타일 게임</p>
+            <div class="info-box">
+                <h3>게임 방법</h3>
+                <p>⌨️ WASD 또는 방향키로 이동</p>
+                <p>⚔️ 자동으로 공격합니다</p>
+                <p>📈 레벨업하여 스킬을 선택하세요</p>
+                <p>⏱️ 최대한 오래 생존하세요!</p>
+            </div>
+            <button id="startBtn" class="btn-start">게임 시작</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen hidden">
+        <!-- HUD -->
+        <div class="hud">
+            <div class="hud-left">
+                <div class="stat-box">
+                    <span class="stat-label">레벨</span>
+                    <span id="playerLevel" class="stat-value">1</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">시간</span>
+                    <span id="gameTime" class="stat-value">0:00</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">처치</span>
+                    <span id="killCount" class="stat-value">0</span>
+                </div>
+            </div>
+            <div class="hud-right">
+                <div class="bar-container">
+                    <div class="bar-label">
+                        <span>HP</span>
+                        <span id="hpText">100/100</span>
+                    </div>
+                    <div class="bar hp-bar">
+                        <div id="hpFill" class="bar-fill hp-fill"></div>
+                    </div>
+                </div>
+                <div class="bar-container">
+                    <div class="bar-label">
+                        <span>EXP</span>
+                        <span id="expText">0/100</span>
+                    </div>
+                    <div class="bar exp-bar">
+                        <div id="expFill" class="bar-fill exp-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Level Up Modal -->
+        <div id="levelUpModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>레벨 업! 스킬을 선택하세요</h2>
+                <div id="skillChoices" class="skill-choices"></div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverModal" class="modal hidden">
+            <div class="modal-content game-over">
+                <h1>게임 오버</h1>
+                <div class="stats-summary">
+                    <p>생존 시간: <span id="finalTime" class="highlight">0:00</span></p>
+                    <p>최종 레벨: <span id="finalLevel" class="highlight">1</span></p>
+                    <p>처치 수: <span id="finalKills" class="highlight">0</span></p>
+                </div>
+                <button id="restartBtn" class="btn-restart">다시 시작</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
